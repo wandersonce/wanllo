@@ -1,4 +1,5 @@
 "use client"
+
 import{ useEffect} from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
@@ -20,3 +21,5 @@ export default function Board() {
     </DragDropContext>
   )
 }
+
+//AT 2:27
