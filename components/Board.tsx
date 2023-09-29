@@ -29,26 +29,25 @@ export default function Board() {
       }
 
       //*Handle card drag - This indexes are stored as numbers 0,1,2 etc. Instead of id's with DND library
-        const columns = Array.from(board.columns);
-        const startColIndex = columns[Number(source.droppableId)]
-        const finishColIndex = columns[Number(destination.droppableId)]
+        const columns = Array. from (board.columns);
+        const startColIndex = columns [Number (source.droppableId)];
+        const finishColIndex = columns [Number(destination.droppableId)];
 
-        const startCol: Column ={
-          id: finishColIndex[0],
-          todos: startColIndex[1].todos
-        }
-
+        const startCol: Column = {
+        id: startColIndex [0],
+        todos: startColIndex [1]. todos,
+        };
         const finishCol: Column = {
-          id: finishColIndex[0],
-          todos: finishColIndex[1].todos
-        }
-
+        id: finishColIndex [0],
+        todos: finishColIndex [1]. todos,
+        };
+        
         if(!startCol || !finishCol) return;
         
         if(source.index === destination.index && startCol === finishCol) return;
 
         const newTodos = startCol.todos;
-        const [todoMoved] = newTodos.splice(source.index, 1)
+        const [todoMoved] = newTodos.splice(source.index, 1);
 
         // *Same Column task drag
         if(startCol.id === finishCol.id){
