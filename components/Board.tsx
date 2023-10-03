@@ -6,7 +6,12 @@ import { DragDropContext, DropResult, Droppable } from 'react-beautiful-dnd';
 import Column from './Column';
 
 export default function Board() {
-  const [board, getBoard, setBoardState] = useBoardStore((state) => [state.board, state.getBoard, state.setBoardState]);
+  const [board, getBoard, setBoardState, updateTodoInDB] = useBoardStore((state) => [
+    state.board, 
+    state.getBoard, 
+    state.setBoardState,
+    state.updateTodoInDB,
+  ]);
 
   useEffect(() => {
     getBoard()
@@ -35,11 +40,11 @@ export default function Board() {
 
         const startCol: Column = {
         id: startColIndex [0],
-        todos: startColIndex [1]. todos,
+        todos: startColIndex [1].todos,
         };
         const finishCol: Column = {
         id: finishColIndex [0],
-        todos: finishColIndex [1]. todos,
+        todos: finishColIndex [1].todos,
         };
         
         if(!startCol || !finishCol) return;
@@ -114,4 +119,4 @@ export default function Board() {
   )
 }
 
-//3:38
+//3:40
