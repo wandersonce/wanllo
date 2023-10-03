@@ -86,7 +86,7 @@ export default function Board() {
 
 
           //Update in DB
-
+          updateTodoInDB(todoMoved, finishCol.id)
 
           setBoardState({...board, columns:newColumns});
 
