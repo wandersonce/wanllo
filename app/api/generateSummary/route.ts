@@ -23,9 +23,6 @@ export async function POST(request: Request) {
     ]
   })
 
-  console.log(response)
-  console.log(response.choices[0].message)
-
   return NextResponse.json(response.choices[0].message);
   
 }
