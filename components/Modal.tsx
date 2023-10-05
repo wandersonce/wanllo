@@ -10,9 +10,9 @@ function Modal() {
     state.isOpen,
     state.closeModal
   ])
-  const [newTaskInput, setNewTasklInput] = useBoardStore((state) => [
+  const [newTaskInput, setNewTaskInput] = useBoardStore((state) => [
     state.newTaskInput,
-    state.setNewTasklInput
+    state.setNewTaskInput
   ])
 
   return (
@@ -63,12 +63,14 @@ function Modal() {
             <input 
               type="text" 
               value={newTaskInput}
-              onChange={(e) => setNewTasklInput(e.target.value)}
+              onChange={(e) => setNewTaskInput(e.target.value)}
               placeholder='Enter a task here...'
               className='w-full border border-gray-300 rounded-md outline-none p-5'
             />
            </div>
 
+          {/* TASK TYPE RADIO GROUP */}
+          
 
           </Dialog.Panel>
         </Transition.Child>
