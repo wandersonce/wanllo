@@ -4,6 +4,7 @@ import { useState, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { useModalStore } from '@/store/ModalStore';
 import { useBoardStore } from '@/store/BoardStore';
+import TaskTypeRadioGroup from './TaskTypeRadioGroup';
 
 function Modal() {
   const [isOpen, closeModal] = useModalStore((state) => [
@@ -70,7 +71,7 @@ function Modal() {
            </div>
 
           {/* TASK TYPE RADIO GROUP */}
-          
+          <TaskTypeRadioGroup />
 
           </Dialog.Panel>
         </Transition.Child>
