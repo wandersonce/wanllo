@@ -118,5 +118,3 @@ export default function Board() {
     </DragDropContext>
   )
 }
-
-//4:34

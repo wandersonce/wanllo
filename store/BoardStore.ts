@@ -95,7 +95,7 @@ export const useBoardStore = create<BoardState>((set, get) => ({
         }
       }
     }
-
+    
     const {$id} = await databases.createDocument(
       process.env.NEXT_PUBLIC_DATABASE_ID!,
       process.env.NEXT_PUBLIC_TODOS_COLLECTION_ID!,
