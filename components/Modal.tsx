@@ -1,6 +1,6 @@
 "use client"
 
-import {  Fragment, useRef } from 'react'
+import {  FormEvent, Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { useModalStore } from '@/store/ModalStore';
 import { useBoardStore } from '@/store/BoardStore';
@@ -15,18 +15,30 @@ function Modal() {
     state.isOpen,
     state.closeModal
   ])
-  const [newTaskInput, setNewTaskInput, image, setImage] = useBoardStore((state) => [
+  const [addTask, newTaskInput, setNewTaskInput, image, setImage] = useBoardStore((state) => [
+    state.addTask,
     state.newTaskInput,
     state.setNewTaskInput,
     state.image,
     state.setImage,
   ])
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if(!newTaskInput) return;
+
+    setImage(null);
+    closeModal();
+
+  }
+
   return (
     // Use the `Transition` component at the root level
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog 
         as="form"
+        onSubmit={e => handleSubmit}
         className="relative z-10"
         onClose={closeModal}>
         {/*
